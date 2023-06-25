@@ -1,0 +1,37 @@
+<mujoco>
+    <body name="straight_line">
+        <geom name="pilon1" type="cylinder" pos="-0.5 -0.75 0" size="0.02 0.2" contype="0" conaffinity="0" rgba="0.3 0.3 0.8 1"/>
+        <geom name="pilon2" type="cylinder" pos="-0.5 -0.25 0" size="0.02 0.2" contype="0" conaffinity="0" rgba="0.3 0.3 0.8 1"/>
+
+        <site name="s1" pos="0 0 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s2" pos="-0.0061 -0.0782 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s3" pos="-0.0244 -0.1544 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s4" pos="-0.0544 -0.2269 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s5" pos="-0.0954 -0.2938 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s6" pos="-0.1463 -0.3534 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s7" pos="-0.2059 -0.4044 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s8" pos="-0.2728 -0.4454 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s9" pos="-0.3451 -0.4753 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s10" pos="-0.4214 -0.4938 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s11" pos="-0.5 -0.5 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="s02_1" pos="0 0 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s02_2" pos="-0.0268 -0.1 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s02_3" pos="-0.1 -0.1732 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s02_4" pos="-0.2 -0.2 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="s03_1" pos="0 0 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s03_2" pos="-0.0228 -0.1148 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s03_3" pos="-0.0878 -0.2121 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s03_4" pos="-0.1852 -0.2772 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s03_5" pos="-0.3 -0.3 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="s04_1" pos="0 0 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s04_2" pos="-0.0136 -0.1035 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s04_3" pos="-0.0536 -0.2 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s04_4" pos="-0.1171 -0.2828 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s04_5" pos="-0.2 -0.3464 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s04_6" pos="-0.2964 -0.3863 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="s04_7" pos="-0.4 -0.4 0" rgba="0.7 0.4 0.1 0.8"/>
+    </body>
+</mujoco>

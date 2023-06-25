@@ -1,0 +1,31 @@
+<mujoco>
+    <tendon>
+        <spatial name="turn_tendon_1m" width="0.01" rgba="1 0 0 1">
+            <site site="p0"/>
+            <site site="p1"/>
+            <site site="p1_0"/>
+            <site site="p1_1"/>
+            <site site="p2"/>
+            <site site="p2_0"/>
+            <site site="p2_1"/>            
+            <site site="p3"/>
+            <site site="p3_0"/>
+            <site site="p3_1"/>
+            <site site="p3_2"/>
+            <site site="p4"/>
+            <site site="p5"/>
+            <site site="p5_0"/>
+            <site site="p5_1"/>
+            <site site="p6"/>
+            <site site="p6_0"/>
+            <site site="p6_1"/>
+            <site site="p7"/>
+            <site site="p7_0"/>
+            <site site="p7_1"/>
+            <site site="p8"/>
+            <site site="p9"/>
+        </spatial>
+    </tendon>
+
+
+</mujoco>

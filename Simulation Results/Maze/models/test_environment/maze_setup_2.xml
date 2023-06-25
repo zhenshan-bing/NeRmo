@@ -1,0 +1,40 @@
+<mujoco>
+    <body name="maze" pos="0 0 0">
+        <geom name="base_plate" type="box" pos="0 0 0" size="1.2 2.0 0.005" rgba="0.1 0.1 0.1 1"/>
+
+        <!-- Target path -->
+        <!--site name="p1" size="0.01" pos="-0.25 -0 0" rgba="1 0 0 1"/>
+        <site name="p2" size="0.01" pos="-0.25 -0.2 0" rgba="1 0 0 1"/>
+        <site name="p3" size="0.01" pos="-0.25 -0.4 0" rgba="1 0 0 1"/-->
+        <site name="p0" pos="0.1 -0.2 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p1" pos="0.1 -0.3 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p1_0" pos="0.0732 -0.4 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p1_1" pos="0 -0.4732 0" rgba="0.7 0.4 0.1 0.8"/>
+        
+        <site name="p2" pos="-0.1 -0.5 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p2_0" pos="-0.2 -0.5268 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p2_1" pos="-0.2732 -0.6 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="p3" pos="-0.3 -0.7 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p3_0" pos="-0.2771 -0.8148 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p3_1" pos="-0.2121 -0.9121 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p3_2" pos="-0.1148 -0.9771 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="p4" pos="0 -1 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="p5" pos="0.1 -1 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p5_0" pos="0.2 -0.9732 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p5_1" pos="0.2732 -0.9 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="p6" pos="0.3 -0.8 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p6_0" pos="0.3268 -0.7 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p6_1" pos="0.4 -0.6268 0" rgba="0.7 0.4 0.1 0.8"/>
+
+        <site name="p7" pos="0.5 -0.6 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p7_0" pos="0.6 -0.5732 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p7_1" pos="0.6732 -0.5 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p8" pos="0.7 -0.4 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p9" pos="0.7 -0.3 0" rgba="0.7 0.4 0.1 0.8"/>
+        <site name="p10" pos="0.7 -0.2 0" rgba="0.7 0.4 0.1 0.8"/>
+    </body>
+</mujoco>

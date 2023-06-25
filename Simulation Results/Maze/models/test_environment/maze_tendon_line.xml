@@ -1,0 +1,11 @@
+<mujoco>
+    <tendon>
+        <spatial name="path_line" rgba="1 0 0 1" range="0 0.07405" width="0.01" >
+            <site site="p1"/>
+            <site site="p2"/>
+            <site site="p3"/>
+        </spatial>
+    </tendon>
+
+
+</mujoco>
