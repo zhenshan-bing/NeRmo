@@ -202,10 +202,10 @@
         <jointpos name="neck" joint="neck"/>
         <jointpos name="head" joint="head"/>
         <jointpos name="spine" joint="m_ss"/>
-        <!--jointpos name="knee_fl" joint="knee1_fl"/>
+        <!-- <jointpos name="knee_fl" joint="knee1_fl"/>
         <jointpos name="knee_fr" joint="knee1_fr"/>
         <jointpos name="knee_rl" joint="knee1_rl"/>
-        <jointpos name="knee_rr" joint="knee1_rr"/-->
+        <jointpos name="knee_rr" joint="knee1_rr"/> -->
         <touch name="fl_t1" site="foot_s_fl"/>
         <touch name="fr_t1" site="foot_s_fr"/>
         <touch name="rl_t1" site="foot_s_rl"/>
