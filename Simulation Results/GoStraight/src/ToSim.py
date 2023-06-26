@@ -11,12 +11,6 @@ class SimModel(object):
 		super(SimModel, self).__init__()
 		self.model = load_model_from_path(modelPath)
 		self.sim = MjSim(self.model)
-		# self.viewer = MjViewer(self.sim)
-		# self.viewer.cam.azimuth = 0
-		# self.viewer.cam.lookat[0] += 0.25
-		# self.viewer.cam.lookat[1] += -0.5
-		# self.viewer.cam.distance = self.model.stat.extent * 0.5
-		# self.viewer.run_speed = 2
 
 		self.sim_state = self.sim.get_state()
 		self.sim.set_state(self.sim_state)
@@ -67,7 +61,7 @@ class SimModel(object):
 		self.previous_mouse_xy_position = self.get_sensor("com_pos", 2, use_correct_sensors=True)
 		for i in range(step_num):
 			self.sim.step()
-			# self.viewer.render()
+
 		self.current_mouse_xy_position = self.get_sensor("com_pos", 2, use_correct_sensors=True)
 		self._compute_velocities(cur_time_step)
 		self.info = {
@@ -101,10 +95,6 @@ class SimModel(object):
             "neck": 9,
             "head": 10,
             "spine": 11,
-            # "knee_fl": 12,
-            # "knee_fr": 13,
-            # "knee_rl": 14,
-            # "knee_rr": 15,
             "fl_t1": 12,
             "fr_t1": 13,
             "rl_t1": 14,

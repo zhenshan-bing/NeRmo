@@ -11,42 +11,26 @@ class MouseController(object):
 	def __init__(self, fre, time_step, spine_angle, stride_length_scale_factor, duty_factor):
 		super(MouseController, self).__init__()
 		PI = np.pi
-		self.curStep = 0# Spine
+		self.curStep = 0
 		self.stride_length_scale_factor = stride_length_scale_factor
 		self.duty_factor = duty_factor
 		
-		# Spine A = 0
-		#self.turn_F = 0*PI/180
-		#self.turn_H = 8*PI/180
-		# Spine A = 20
 		self.turn_F = 0*PI/180
 		self.turn_H = 12*PI/180
 		self.pathStore = LegPath()
 		# [LF, RF, LH, RH]
 		# --------------------------------------------------------------------- #
-		# self.phaseDiff = [0, PI, PI*1/2, PI*3/2]	# Walk
-		# self.period = 3/2
-		# self.fre_cyc = fre
-		# self.SteNum = 36							#32 # Devide 2*PI to multiple steps
-		# self.spinePhase = self.phaseDiff[3]
-		# --------------------------------------------------------------------- #
+		# Chooese gait pattern:
 		# Trot
 		# self.phaseDiff = [PI, 0, 0, PI]
-		# self.phaseDiff = [PI, 0, PI, 0]
-		# self.phaseDiff = [PI, PI, 0, 0]
 		# lateral sequence walk
 		self.phaseDiff = [0.63*2*PI, 0.14*2*PI, 0, 0.54*2*PI]
-		# self.phaseDiff = [0.63 * 2 * PI, 0.14 * 2 * PI, 0, 0.54 * 2 * PI]
-		# self.phaseDiff = [0, PI, PI*1/2, PI*3/2]# Trot
-		# self.phaseDiff = [0, PI*1/2, PI * 1 / 4, PI * 3 / 4]
 		self.period = 2/2
-		self.fre_cyc = fre#1.25#0.80
+		self.fre_cyc = fre
 		self.SteNum = int(1/(time_step*self.fre_cyc))  #
-		# print("----> ", self.SteNum)
 		self.spinePhase = self.phaseDiff[3]
 		# --------------------------------------------------------------------- #
-		self.spine_A =2*spine_angle#10 a_s = 2theta_s
-		# print("angle --> ", spine_angle)#self.spine_A)
+		self.spine_A =2*spine_angle
 		self.spine_A = self.spine_A*PI/180
 		# --------------------------------------------------------------------- #
 		fl_params = {'lr0':0.033, 'rp': 0.008, 'd1': 0.0128, 'l1': 0.0295, 
@@ -77,18 +61,15 @@ class MouseController(object):
 		radian_swing = 2 * math.pi * (1 - duty_factor)
 
 		radian_stance = 2 * math.pi*duty_factor
-		# print("radian_swing,radian_stance",radian_swing,radian_stance)
 		swing_stance_state = 10
 		radian = 2*np.pi * curStep/self.SteNum
 		if radian < radian_swing:
 			radian = radian / radian_swing * math.pi
-			# print("swing")
 			swing_stance_state = 0
 		else:
 			radian = math.pi + (radian - radian_swing) / radian_stance * math.pi
-			# print("stance")
 			swing_stance_state = 1
-		#currentPos = self.pathStore.getRectangle(radian, leg_flag)
+		
 		currentPos = self.pathStore.getOvalPathPoint(radian, leg_flag, self.period, stride_length_scale_factor)
 		trg_x = currentPos[0]
 		trg_y = currentPos[1]
@@ -101,27 +82,18 @@ class MouseController(object):
 		return qVal, swing_stance_state
 
 	def getSpineVal(self, spineStep, duty_factor):
-		temp_step = int(spineStep)# / 5)
-		# radian_swing = 2 * math.pi * (1 - duty_factor)
-		# radian_stance = 2 * math.pi * duty_factor
+		temp_step = int(spineStep)
 		radian_swing = 2*math.pi-self.spinePhase
 		radian_stance = self.spinePhase
 		radian = 2*np.pi * temp_step/self.SteNum
 		if radian < radian_swing:
 			radian = radian / radian_swing * math.pi
-			# print("swing")
 			swing_stance_state = 0
 		else:
 			radian = math.pi + (radian - radian_swing) / radian_stance * math.pi
-			# print("stance")
 			swing_stance_state = 1
 
 		return self.spine_A * math.cos(radian - 2 * math.pi * (1 - duty_factor))
-
-		# radian = 2 * np.pi * temp_step / self.SteNum
-		# return self.spine_A*math.cos(radian - self.spinePhase)
-		#spinePhase = 2*np.pi*spineStep/self.SteNum
-		#return self.spine_A*math.sin(spinePhase)
 
 	def runStep(self):
 		foreLeg_left_q, swing_stance_state_fl = self.getLegCtrl(self.fl_left,
@@ -133,11 +105,9 @@ class MouseController(object):
 		hindLeg_right_q, swing_stance_state_hr = self.getLegCtrl(self.hl_right,
 			self.curStep + self.stepDiff[3], 3, self.stride_length_scale_factor, self.duty_factor)
 
-		spineStep = self.curStep #+ self.stepDiff[4]
+		spineStep = self.curStep
 		spine = self.getSpineVal(spineStep, self.duty_factor)
-		# spine = 0
 		self.curStep = (self.curStep + 1) % self.SteNum
-		# print(self.curStep)
 
 		ctrlData = []
 		swing_stance_states = []
@@ -146,10 +116,6 @@ class MouseController(object):
 		swing_stance_states.append(swing_stance_state_hl)
 		swing_stance_states.append(swing_stance_state_hr)
 
-		#foreLeg_left_q = [1,0]
-		#foreLeg_right_q = [1,0]
-		#hindLeg_left_q = [-1,0]
-		#hindLeg_right_q = [-1,0]
 		ctrlData.extend(foreLeg_left_q)
 		ctrlData.extend(foreLeg_right_q)
 		ctrlData.extend(hindLeg_left_q)
@@ -175,17 +141,11 @@ class MouseController(object):
 
 		ctrlData = []
 
-		# foreLeg_left_q = [1,0]
-		# foreLeg_right_q = [1,0]
-		# hindLeg_left_q = [-1,0]
-		# hindLeg_right_q = [-1,0]
-
 		ctrlData.extend(np.array(foreLeg_left_q_first_timestep) / 500 * timestep)
 		ctrlData.extend(np.array(foreLeg_right_q_first_timestep) / 500 * timestep)
 		ctrlData.extend(np.array(hindLeg_left_q_first_timestep) / 500 * timestep)
 		ctrlData.extend(np.array(hindLeg_right_q_first_timestep) / 500 * timestep)
 		spine = spine_q_first_timestep / 500 * timestep
-		# spine = 0
 		for i in range(3):
 			ctrlData.append(0)
 		ctrlData.append(spine)

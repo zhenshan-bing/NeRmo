@@ -7,10 +7,10 @@ import os
 # --------------------
 RUN_TIME_LENGTH = 20
 if __name__ == '__main__':
+	duty_factor = 0.5 # ideal trot: 0.5; walking trot: 0.6; lateral sequence walk: 0.68
 	fre_gs = [0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4]
 	spine_angle_gs = [0, 2, 4, 8, 16]
 	stride_length_scale_factor_gs = [0.2, 0.4, 0.6, 0.8, 1]
-	duty_factor = 0.68
 	time_step = 0.0025
 	run_steps_num = int(RUN_TIME_LENGTH / time_step)
 

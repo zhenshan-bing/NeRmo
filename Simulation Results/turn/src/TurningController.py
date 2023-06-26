@@ -22,15 +22,12 @@ class MouseController(object):
         self.hind_left_scale_factor = hind_left_scale_factor
         self.duty_factor = duty_factor
 
-        # Spine A = 0
-        # self.turn_F = 0*PI/180
-        # self.turn_H = 8*PI/180
-        # Spine A = 20
         self.turn_F = 0 * PI / 180
         self.turn_H = 12 * PI / 180
         self.pathStore = LegPath()
         # [LF, RF, LH, RH]
         # --------------------------------------------------------------------- #
+        # Choose gait pattern:
         # Trot
         self.phaseDiff = [PI, 0, 0, PI]
         # Lateral sequence walk
