@@ -123,7 +123,7 @@
                                     <include file="leg_rr_assets/rr_t3_asset_exp.xml"/>
                                 </body>
 
-                                <body name="visual_mouse_tail" pos="0 0.0217 0.0028" euler="15 0 0">
+                                <body name="visual_mouse_tail" pos="0 0.0217 0.0028" euler="25 0 0">
                                     <include file="tail_assets/tail.xml"/>
                                     <!-- geom name="mouse_tail" type="mesh" mesh="tail" mass="0.020" rgba="0.95 0.95 0.95 1"/-->
                                 </body>

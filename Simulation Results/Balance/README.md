@@ -1,8 +1,8 @@
 # Execution command
 
 Run the following command:
-`python3 Test_walker.py -m <> -l <> -a <>`
-For example, `python3 Test_walker.py -m 0.8 -l 0 -a 0.3`
+`python3 Test_balance_sim.py -m <> -l <> -a <>`
+For example, `python3 Test_balance_sim.py -m sb -l 0 -a 0.3`
 
 # Parameters
 
